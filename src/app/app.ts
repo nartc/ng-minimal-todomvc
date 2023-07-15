@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    template: ``,
+    template: `
+        <router-outlet />
+    `,
+    imports: [RouterOutlet],
 })
-export class App {
-    title = 'ng-todomvc-signals';
-}
+export class App {}
