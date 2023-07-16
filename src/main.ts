@@ -1,8 +1,11 @@
+import { NgZone, ɵNoopNgZone } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
-import { App } from './app/app';
-import Todo from './app/todo';
+import Todo, { App } from './app/app';
 
 bootstrapApplication(App, {
-    providers: [provideRouter([{ path: '', component: Todo }], withComponentInputBinding())],
+    providers: [
+        provideRouter([{ path: '', component: Todo }], withComponentInputBinding()),
+        { provide: NgZone, useClass: ɵNoopNgZone },
+    ],
 }).catch((err) => console.error(err));
